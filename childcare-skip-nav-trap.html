@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Little Sprouts Childcare</title>
+<style>
+:root{--ink:#25324a;--cream:#fffaf2;--coral:#ed6b5f;--teal:#267a78;--sun:#f5c451;--white:#fff}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;color:var(--ink);background:var(--cream);line-height:1.55}
+a{color:inherit}.skip-link{position:absolute;left:1rem;top:-5rem;background:#111;color:#fff;padding:.8rem 1rem;z-index:10}.skip-link:focus{top:1rem}
+header{background:var(--white);border-bottom:4px solid var(--sun)}.top{max-width:1100px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:1rem}.brand{font-size:1.45rem;font-weight:800;color:var(--teal)}nav ul{display:flex;gap:.5rem;list-style:none;margin:0;padding:0}nav a{display:block;padding:.65rem .8rem;border-radius:.5rem;text-decoration:none;font-weight:700}nav a:focus{outline:4px solid #111;outline-offset:2px}
+.hero{background:linear-gradient(135deg,#d8f2ed,#fff0c8);padding:4.5rem 1.25rem}.hero-inner,.section{max-width:1100px;margin:auto}.hero h1{font-size:clamp(2.3rem,7vw,4.8rem);line-height:1;margin:.1em 0}.hero p{font-size:1.2rem;max-width:650px}.button{display:inline-block;background:var(--coral);color:#fff;padding:.8rem 1.1rem;border-radius:.5rem;text-decoration:none;font-weight:800}
+.section{padding:3rem 1.25rem}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.card{background:white;border-radius:1rem;padding:1.25rem;border:2px solid #e7ded1}.card span{font-size:2rem}footer{background:var(--ink);color:#fff;padding:2.5rem 1.25rem}.footer-inner{max-width:1100px;margin:auto}
+@media(max-width:720px){.top{align-items:flex-start;gap:1rem;flex-direction:column}nav ul{flex-wrap:wrap}.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<!-- Intentional failure: the link says main content but targets the footer. -->
+<a class="skip-link" href="#site-footer">Skip to main content</a>
+<header>
+  <div class="top"><div class="brand">Little Sprouts Childcare</div>
+  <nav aria-label="Primary"><ul>
+    <li><a href="#programs">Programs</a></li><li><a href="#approach">Our approach</a></li><li><a href="#visit">Plan a visit</a></li>
+  </ul></nav></div>
+</header>
+<main id="main-content">
+<section class="hero"><div class="hero-inner"><p><strong>Play. Explore. Belong.</strong></p><h1>Big discoveries start small.</h1><p>A warm, playful learning community for infants, toddlers, and preschoolers.</p><a class="button" href="#visit">Schedule a tour</a></div></section>
+<section class="section" id="programs"><h2>Programs for every growing stage</h2><div class="cards">
+<article class="card"><span aria-hidden="true">☀</span><h3>Infants</h3><p>Responsive care, sensory play, and calm routines for ages 6 weeks to 18 months.</p></article>
+<article class="card"><span aria-hidden="true">★</span><h3>Toddlers</h3><p>Movement, language, art, and guided discovery for curious young learners.</p></article>
+<article class="card"><span aria-hidden="true">♥</span><h3>Preschool</h3><p>Collaborative play and early learning that build confidence for kindergarten.</p></article>
+</div></section>
+<section class="section" id="approach"><h2>Learning through joyful exploration</h2><p>Our educators build each day around belonging, choice, movement, and hands-on discovery.</p></section>
+<section class="section" id="visit"><h2>Come grow with us</h2><p>Visit our classrooms, meet our teachers, and learn about enrollment.</p><a class="button" href="mailto:hello@example.com">Contact admissions</a></section>
+</main>
+<footer id="site-footer" tabindex="-1"><div class="footer-inner"><h2>Little Sprouts Childcare</h2><p>123 Garden Lane · Open Monday through Friday</p></div></footer>
+<script>
+// Intentional keyboard trap: once focus reaches a primary navigation link,
+// Tab and Shift+Tab cycle among only those links and cannot reach page content.
+const navLinks = [...document.querySelectorAll('nav a')];
+navLinks.forEach((link, index) => {
+  link.addEventListener('keydown', (event) => {
+    if (event.key === 'Tab') {
+      event.preventDefault();
+      const next = event.shiftKey
+        ? (index - 1 + navLinks.length) % navLinks.length
+        : (index + 1) % navLinks.length;
+      navLinks[next].focus();
+    }
+  });
+});
+</script>
+</body></html>
