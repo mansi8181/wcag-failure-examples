@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TrailPeak Outfitters</title>
+<style>
+:root{--green:#17663d;--dark:#10251e;--light:#f5f7f4;--red:#a51616}*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#14221e;background:#fff}a{color:inherit}.skip{position:absolute;left:16px;top:12px;z-index:10;color:#064f90;text-decoration:underline;font-weight:700}.skip-row{height:48px;border-bottom:1px solid #ddd;position:relative}.warning{margin-left:205px;padding-top:14px;color:#c51414;font-weight:700}.announce{background:var(--green);color:#fff;padding:14px 64px;text-align:center;position:relative}.announce button{position:absolute;right:22px;top:8px;background:transparent;color:#fff;border:0;font-size:28px}.header-top{display:grid;grid-template-columns:300px 1fr auto;align-items:center;gap:28px;padding:28px 5% 18px}.brand{font-size:34px;font-weight:800;color:var(--dark);line-height:.9}.brand small{display:block;font-size:12px;letter-spacing:5px;margin:10px 0 0 46px}.search{display:flex;border:1px solid #cfd5d2;border-radius:8px;overflow:hidden}.search input{border:0;padding:15px;width:100%;font-size:16px}.search button{border:0;background:#fff;padding:0 18px;font-size:20px}.tools{display:flex;gap:25px}.tools a{text-decoration:none;text-align:center;font-size:14px}.nav{display:flex;gap:46px;padding:18px 5%;border-top:1px solid #eee;border-bottom:1px solid #ddd}.nav a{text-decoration:none}.nav .sale{color:var(--red);font-weight:700}.hero{min-height:430px;padding:70px 7%;color:#fff;background:linear-gradient(90deg,rgba(6,35,24,.95),rgba(23,102,61,.40)),linear-gradient(135deg,#315e4c,#8aa08d)}.hero h1{font-size:64px;line-height:1.02;margin:0 0 18px;max-width:650px}.hero p{font-size:28px}.cta{display:inline-block;background:#168550;color:white;text-decoration:none;padding:17px 28px;border-radius:10px;font-weight:700}.products{padding:38px 5% 70px}.products-head{display:flex;justify-content:space-between;align-items:center}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.card{background:var(--light);border-radius:10px;padding:30px 22px;min-height:230px}.product-art{height:120px;border-radius:50%;background:#dce5df;margin:auto;width:120px;display:grid;place-items:center;font-size:54px}.card h3{margin-bottom:6px}.price{font-weight:700;color:var(--green)}footer{background:#10251e;color:#fff;padding:30px 5%}@media(max-width:850px){.header-top{grid-template-columns:1fr}.nav{gap:18px;flex-wrap:wrap}.tools{justify-content:flex-start}.grid{grid-template-columns:1fr 1fr}.hero h1{font-size:44px}.warning{font-size:12px;margin-left:180px}}@media(max-width:480px){.grid{grid-template-columns:1fr}.warning{display:none}}
+</style>
+</head>
+<body>
+<div class="skip-row"><a class="skip" href="#main-content">Skip to main content</a></div>
+<div class="announce">Free shipping on orders over $50 &nbsp; | &nbsp; Easy 30-day returns <button aria-label="Close announcement">×</button></div>
+<header>
+  <div class="header-top">
+    <a class="brand" href="#">▲ TrailPeak<small>OUTFITTERS</small></a>
+    <form class="search" action="#"><label for="q" style="position:absolute;left:-9999px">Search products</label><input id="q" placeholder="Search for gear, clothing, and more..."><button aria-label="Search">⌕</button></form>
+    <div class="tools"><a href="#">♙<br>Account</a><a href="#">♡<br>Wishlist</a><a href="#">🛒<br>Cart (0)</a></div>
+  </div>
+  <nav class="nav" aria-label="Primary"><a href="#">Men</a><a href="#">Women</a><a href="#">Footwear</a><a href="#">Camping</a><a href="#">Hiking</a><a href="#">Climbing</a><a href="#">Accessories</a><a class="sale" href="#">Sale</a></nav>
+</header>
+<main id="content">
+  <section class="hero"><h1>Gear for a<br>Bigger Tomorrow</h1><p>Explore more. Live better.</p><a class="cta" href="#featured">Shop Best Sellers</a></section>
+  <section class="products" id="featured"><div class="products-head"><h2>Featured Products</h2><a href="#">View All →</a></div><div class="grid">
+    <article class="card"><div class="product-art" aria-hidden="true">🎒</div><h3>Summit 35L Pack</h3><div class="price">$129.00</div></article>
+    <article class="card"><div class="product-art" aria-hidden="true">⛺</div><h3>Alpine 2P Tent</h3><div class="price">$249.00</div></article>
+    <article class="card"><div class="product-art" aria-hidden="true">🥾</div><h3>Ridge Hiking Boots</h3><div class="price">$159.00</div></article>
+    <article class="card"><div class="product-art" aria-hidden="true">◉</div><h3>Trail Bottle</h3><div class="price">$29.00</div></article>
+  </div></section>
+</main>
+<footer>© 2026 TrailPeak Outfitters</footer>
+<script>
+(function () {
+  const skipLink = document.querySelector('.skip');
+  const navigationLinks = document.querySelectorAll('.nav a');
+
+  const searchField = document.querySelector('#q');
+  searchField.addEventListener('keydown', function (event) {
+    if (event.key === 'Tab') {
+      event.preventDefault();
+      searchField.focus();
+    }
+  });
+
+  navigationLinks.forEach(function (link) {
+    link.addEventListener('click', function (event) {
+      event.preventDefault();
+      skipLink.focus();
+    });
+
+    link.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        skipLink.focus();
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
